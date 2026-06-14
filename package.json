@@ -9,19 +9,24 @@
     "build": "echo 'Build complete'",
     "test": "echo 'Tests coming soon'"
   },
-  "keywords": ["rugby", "tournament", "sports"],
+  "keywords": [
+    "rugby",
+    "tournament",
+    "sports"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "axios": "^1.4.0",
+    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "bcryptjs": "^2.4.3",
+    "mongoose": "^9.7.0",
     "socket.io": "^4.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^3.1.14"
   }
 }
