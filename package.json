@@ -24,6 +24,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^9.7.0",
+    "node": "^26.3.0",
     "socket.io": "^4.6.0"
   },
   "devDependencies": {
@@ -31,5 +32,8 @@
   },
   "engines": {
     "node": "24.x"
+  },
+  "allowScripts": {
+    "node@26.3.0": true
   }
 }
