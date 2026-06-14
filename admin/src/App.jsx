@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const App = () => {
@@ -12,13 +12,8 @@ const App = () => {
 
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
-  useEffect(() => {
-    fetchData();
-    const interval = setInterval(fetchData, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const fetchData = async () => {
+  // useCallback to memoize fetchData function
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
       const [tournamentsRes, matchesRes] = await Promise.all([
@@ -40,7 +35,13 @@ const App = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_URL, selectedTournament]);
+
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
+  }, [fetchData]);
 
   const createTournament = async (e) => {
     e.preventDefault();
